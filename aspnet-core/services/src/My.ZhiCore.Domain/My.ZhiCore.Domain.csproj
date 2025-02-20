@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\BasicManagement\src\My.ZhiCore.BasicManagement.Domain\My.ZhiCore.BasicManagement.Domain.csproj" />
+    <ProjectReference Include="..\..\..\modules\DataDictionaryManagement\src\My.ZhiCore.DataDictionaryManagement.Domain\My.ZhiCore.DataDictionaryManagement.Domain.csproj" />
+    <ProjectReference Include="..\..\..\modules\FileManagement\src\My.ZhiCore.FileManagement.Domain\My.ZhiCore.FileManagement.Domain.csproj" />
+    <ProjectReference Include="..\..\..\modules\NotificationManagement\src\My.ZhiCore.NotificationManagement.Domain\My.ZhiCore.NotificationManagement.Domain.csproj" />
+    <ProjectReference Include="..\..\..\modules\LanguageManagement\src\My.ZhiCore.LanguageManagement.Domain\My.ZhiCore.LanguageManagement.Domain.csproj" />
+    <ProjectReference Include="..\My.ZhiCore.Domain.Shared\My.ZhiCore.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Emailing" />
+  </ItemGroup>
+
+
+</Project>

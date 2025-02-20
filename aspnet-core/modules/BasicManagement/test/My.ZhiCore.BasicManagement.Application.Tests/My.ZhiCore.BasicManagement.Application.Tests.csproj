@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.BasicManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\My.ZhiCore.BasicManagement.Application\My.ZhiCore.BasicManagement.Application.csproj" />
+    <ProjectReference Include="..\My.ZhiCore.BasicManagement.Domain.Tests\My.ZhiCore.BasicManagement.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+  </ItemGroup>
+
+</Project>

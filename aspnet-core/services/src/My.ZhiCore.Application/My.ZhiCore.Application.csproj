@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\modules\BasicManagement\src\My.ZhiCore.BasicManagement.Application\My.ZhiCore.BasicManagement.Application.csproj" />
+        <ProjectReference Include="..\..\..\modules\DataDictionaryManagement\src\My.ZhiCore.DataDictionaryManagement.Application\My.ZhiCore.DataDictionaryManagement.Application.csproj" />
+        <ProjectReference Include="..\..\..\modules\FileManagement\src\My.ZhiCore.FileManagement.Application\My.ZhiCore.FileManagement.Application.csproj" />
+        <ProjectReference Include="..\..\..\modules\NotificationManagement\src\My.ZhiCore.NotificationManagement.Application\My.ZhiCore.NotificationManagement.Application.csproj" />
+        <ProjectReference Include="..\..\..\modules\LanguageManagement\src\My.ZhiCore.LanguageManagement.Application\My.ZhiCore.LanguageManagement.Application.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.Domain\My.ZhiCore.Domain.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.Application.Contracts\My.ZhiCore.Application.Contracts.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.FreeSqlRepository\My.ZhiCore.FreeSqlRepository.csproj" />
+    </ItemGroup>
+
+</Project>

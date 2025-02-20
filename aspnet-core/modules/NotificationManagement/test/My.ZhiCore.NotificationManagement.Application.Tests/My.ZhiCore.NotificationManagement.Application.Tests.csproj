@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.NotificationManagement</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\My.ZhiCore.NotificationManagement.Application\My.ZhiCore.NotificationManagement.Application.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.NotificationManagement.Domain.Tests\My.ZhiCore.NotificationManagement.Domain.Tests.csproj" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    </ItemGroup>
+
+</Project>

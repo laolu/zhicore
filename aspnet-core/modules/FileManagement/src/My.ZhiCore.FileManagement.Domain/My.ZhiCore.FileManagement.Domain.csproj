@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Ddd.Domain"/>
+        <PackageReference Include="Volo.Abp.AutoMapper"/>
+        <PackageReference Include="Volo.Abp.BlobStoring"/>
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.Domain.Shared\My.ZhiCore.FileManagement.Domain.Shared.csproj"/>
+    </ItemGroup>
+
+</Project>

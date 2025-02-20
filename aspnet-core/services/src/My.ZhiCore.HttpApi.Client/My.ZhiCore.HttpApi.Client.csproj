@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+  <PropertyGroup>
+	<TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\BasicManagement\src\My.ZhiCore.BasicManagement.HttpApi.Client\My.ZhiCore.BasicManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\..\modules\DataDictionaryManagement\src\My.ZhiCore.DataDictionaryManagement.HttpApi.Client\My.ZhiCore.DataDictionaryManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\..\modules\FileManagement\src\My.ZhiCore.FileManagement.HttpApi.Client\My.ZhiCore.FileManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\..\modules\NotificationManagement\src\My.ZhiCore.NotificationManagement.HttpApi.Client\My.ZhiCore.NotificationManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\..\modules\LanguageManagement\src\My.ZhiCore.LanguageManagement.HttpApi.Client\My.ZhiCore.LanguageManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\My.ZhiCore.Application.Contracts\My.ZhiCore.Application.Contracts.csproj" />
+  </ItemGroup>
+
+ 
+
+</Project>

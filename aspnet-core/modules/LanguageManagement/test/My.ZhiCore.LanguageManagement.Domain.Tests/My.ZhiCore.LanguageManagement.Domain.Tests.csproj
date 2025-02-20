@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.LanguageManagement</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <ProjectReference Include="..\My.ZhiCore.LanguageManagement.EntityFrameworkCore.Tests\My.ZhiCore.LanguageManagement.EntityFrameworkCore.Tests.csproj" />
+    </ItemGroup>
+
+</Project>

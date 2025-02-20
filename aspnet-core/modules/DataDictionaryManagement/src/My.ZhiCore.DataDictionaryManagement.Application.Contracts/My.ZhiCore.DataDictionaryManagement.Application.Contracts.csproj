@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+	<TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.DataDictionaryManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" />
+    <PackageReference Include="Volo.Abp.Authorization" />
+    <ProjectReference Include="..\My.ZhiCore.DataDictionaryManagement.Domain.Shared\My.ZhiCore.DataDictionaryManagement.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

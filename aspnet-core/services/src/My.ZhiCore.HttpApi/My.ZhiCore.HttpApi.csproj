@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\BasicManagement\src\My.ZhiCore.BasicManagement.HttpApi\My.ZhiCore.BasicManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\..\modules\DataDictionaryManagement\src\My.ZhiCore.DataDictionaryManagement.HttpApi\My.ZhiCore.DataDictionaryManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\..\modules\FileManagement\src\My.ZhiCore.FileManagement.HttpApi\My.ZhiCore.FileManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\..\modules\NotificationManagement\src\My.ZhiCore.NotificationManagement.HttpApi\My.ZhiCore.NotificationManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\..\..\modules\LanguageManagement\src\My.ZhiCore.LanguageManagement.HttpApi\My.ZhiCore.LanguageManagement.HttpApi.csproj" />
+    <ProjectReference Include="..\My.ZhiCore.Application.Contracts\My.ZhiCore.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+  </ItemGroup>
+
+</Project>

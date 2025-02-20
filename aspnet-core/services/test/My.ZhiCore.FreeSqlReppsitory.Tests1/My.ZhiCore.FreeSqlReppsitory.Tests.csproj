@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\common.props" />
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>My.ZhiCore</RootNamespace>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\My.ZhiCore.FreeSqlReppsitory\My.ZhiCore.FreeSqlReppsitory.csproj" />
+	  <ProjectReference Include="..\My.ZhiCore.TestBase\My.ZhiCore.TestBase.csproj" />
+	</ItemGroup>
+
+</Project>

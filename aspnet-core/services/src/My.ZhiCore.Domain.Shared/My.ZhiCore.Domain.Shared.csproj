@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore</RootNamespace>
+        <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Localization\ZhiCore\*.json" />
+        <Content Remove="Localization\ZhiCore\*.json" />
+
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\modules\BasicManagement\src\My.ZhiCore.BasicManagement.Domain.Shared\My.ZhiCore.BasicManagement.Domain.Shared.csproj" />
+        <ProjectReference Include="..\..\..\modules\DataDictionaryManagement\src\My.ZhiCore.DataDictionaryManagement.Domain.Shared\My.ZhiCore.DataDictionaryManagement.Domain.Shared.csproj" />
+        <ProjectReference Include="..\..\..\modules\FileManagement\src\My.ZhiCore.FileManagement.Domain.Shared\My.ZhiCore.FileManagement.Domain.Shared.csproj" />
+        <ProjectReference Include="..\..\..\modules\NotificationManagement\src\My.ZhiCore.NotificationManagement.Domain.Shared\My.ZhiCore.NotificationManagement.Domain.Shared.csproj" />
+        <ProjectReference Include="..\..\..\modules\LanguageManagement\src\My.ZhiCore.LanguageManagement.Domain.Shared\My.ZhiCore.LanguageManagement.Domain.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

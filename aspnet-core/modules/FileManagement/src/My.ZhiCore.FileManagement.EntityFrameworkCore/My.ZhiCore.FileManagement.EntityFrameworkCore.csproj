@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" />
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.Domain\My.ZhiCore.FileManagement.Domain.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+            <PrivateAssets>compile; contentFiles; build; buildMultitargeting; buildTransitive; analyzers; native</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>

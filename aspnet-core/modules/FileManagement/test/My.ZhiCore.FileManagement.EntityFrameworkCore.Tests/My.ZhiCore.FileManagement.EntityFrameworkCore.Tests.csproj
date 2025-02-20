@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" />
+        <ProjectReference Include="..\..\src\My.ZhiCore.FileManagement.EntityFrameworkCore\My.ZhiCore.FileManagement.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.TestBase\My.ZhiCore.FileManagement.TestBase.csproj" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" />
+    </ItemGroup>
+
+</Project>

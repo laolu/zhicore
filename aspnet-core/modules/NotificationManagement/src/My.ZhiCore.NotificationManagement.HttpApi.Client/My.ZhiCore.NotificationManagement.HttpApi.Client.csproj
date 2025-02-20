@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+
+  <PropertyGroup>
+	  <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.NotificationManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Http.Client" />
+    <ProjectReference Include="..\My.ZhiCore.NotificationManagement.Application.Contracts\My.ZhiCore.NotificationManagement.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

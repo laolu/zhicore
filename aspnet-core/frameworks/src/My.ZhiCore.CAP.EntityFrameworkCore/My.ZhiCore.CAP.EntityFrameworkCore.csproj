@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace />
+        <AssemblyName>My.ZhiCore.CAP.EntityFrameworkCore</AssemblyName>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\My.ZhiCore.CAP\My.ZhiCore.CAP.csproj" />
+    </ItemGroup>
+</Project>

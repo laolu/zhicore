@@ -1,0 +1,16 @@
+{
+  "culture": "en",
+  "texts": {
+    "ManageYourProfile":  "Manage your profile",
+    "SamplePageMessage": "A sample page for the NotificationManagement module",
+    "My.ZhiCore.NotificationManagement:100001": "Receiver Not Null",
+    "My.ZhiCore.NotificationManagement:100002": "Message Not Exist",
+    "My.ZhiCore.NotificationManagement:100003": "MessageType Unknown",
+    "My.ZhiCore.NotificationManagement:100004": "User UnSubscription",
+    "My.ZhiCore.NotificationManagement:100005": "Message Title NotNull",
+    "My.ZhiCore.NotificationManagement:100006": "Message Content NotNull",
+    "My.ZhiCore.NotificationManagement:100007": "Message Receiver NotNull",
+    "Permission:NotificationManagement": "NotificationManagement",
+    "Permission:NotificationSubscriptionManagement": "NotificationSubscriptionManagement"
+  }
+}

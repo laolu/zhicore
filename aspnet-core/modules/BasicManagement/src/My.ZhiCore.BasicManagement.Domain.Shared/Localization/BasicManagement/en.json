@@ -1,0 +1,28 @@
+{
+  "culture": "en",
+  "texts": {
+    "MyAccount":  "My account",
+    "SamplePageMessage": "A sample page for the BasicManagement module",
+    "Permission:Query": "Query",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Permission:Export": "Export",
+    "Permission:Enable": "Enable|Disable",
+    "Permission:SystemManagement": "SystemManagement",
+    "Permission:AuditLogManagement": "AuditLog",
+    "Permission:HangfireManagement": "BackgroundTask",
+    "Permission:SettingManagement": "SettingManagement",
+    "Permission:IdentitySecurityLog": "IdentitySecurityLog",
+    "Permission:OrganizationUnitManagement": "OrganizationUnitManagement",
+    "Permission:FeatureManagement": "FeatureManagement",
+    "Setting.Group.System": "System",
+    "My.ZhiCore.BasicManagement:100001": "OrganizationUnit Not Exist",
+    "My.ZhiCore.BasicManagement:100002": "UserLockedOut",
+    "My.ZhiCore.BasicManagement:100003": "UserOrPasswordMismatch",
+    "My.ZhiCore.BasicManagement:100004": "UserDisabled",
+    "My.ZhiCore.BasicManagement:100005": "Tenant Not Exist",
+    "My.ZhiCore.BasicManagement:100006": "Not Support Set ConnectionString",
+    "My.ZhiCore.BasicManagement:100007": "User Not Exist"
+  }
+}

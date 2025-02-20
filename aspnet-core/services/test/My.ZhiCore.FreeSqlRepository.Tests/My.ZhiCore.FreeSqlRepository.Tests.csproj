@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+
+        <RootNamespace>My.ZhiCore.FreeSqlRepository.Tests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="FreeSql.Provider.Sqlite" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\My.ZhiCore.EntityFrameworkCore\My.ZhiCore.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\src\My.ZhiCore.FreeSqlRepository\My.ZhiCore.FreeSqlRepository.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.TestBase\My.ZhiCore.TestBase.csproj" />
+    </ItemGroup>
+
+</Project>

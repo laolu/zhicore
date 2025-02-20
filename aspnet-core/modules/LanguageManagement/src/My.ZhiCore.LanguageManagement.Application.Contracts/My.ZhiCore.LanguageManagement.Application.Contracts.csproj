@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+	<TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.LanguageManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" />
+    <PackageReference Include="Volo.Abp.Authorization" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\My.ZhiCore.LanguageManagement.Domain.Shared\My.ZhiCore.LanguageManagement.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

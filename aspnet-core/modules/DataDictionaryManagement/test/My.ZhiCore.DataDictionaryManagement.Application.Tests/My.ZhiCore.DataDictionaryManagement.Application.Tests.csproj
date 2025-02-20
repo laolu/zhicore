@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.DataDictionaryManagement</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\My.ZhiCore.DataDictionaryManagement.Application\My.ZhiCore.DataDictionaryManagement.Application.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.DataDictionaryManagement.Domain.Tests\My.ZhiCore.DataDictionaryManagement.Domain.Tests.csproj" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    </ItemGroup>
+
+</Project>

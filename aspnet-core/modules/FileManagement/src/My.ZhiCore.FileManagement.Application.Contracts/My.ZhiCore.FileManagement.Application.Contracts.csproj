@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" />
+        <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.Authorization" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.Domain.Shared\My.ZhiCore.FileManagement.Domain.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

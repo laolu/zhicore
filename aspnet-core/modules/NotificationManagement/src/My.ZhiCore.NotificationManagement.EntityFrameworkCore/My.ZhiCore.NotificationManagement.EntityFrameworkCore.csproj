@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.NotificationManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" />
+    <ProjectReference Include="..\My.ZhiCore.NotificationManagement.Domain\My.ZhiCore.NotificationManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

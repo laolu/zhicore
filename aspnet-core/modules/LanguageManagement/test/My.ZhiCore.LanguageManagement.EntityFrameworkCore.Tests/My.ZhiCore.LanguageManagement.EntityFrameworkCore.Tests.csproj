@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.LanguageManagement</RootNamespace>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" />
+        <ProjectReference Include="..\..\src\My.ZhiCore.LanguageManagement.EntityFrameworkCore\My.ZhiCore.LanguageManagement.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.LanguageManagement.TestBase\My.ZhiCore.LanguageManagement.TestBase.csproj" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" />
+    </ItemGroup>
+
+</Project>

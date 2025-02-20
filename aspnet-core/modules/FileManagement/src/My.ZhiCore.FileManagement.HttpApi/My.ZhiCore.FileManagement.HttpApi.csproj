@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.Application.Contracts\My.ZhiCore.FileManagement.Application.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

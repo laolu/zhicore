@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>My.ZhiCore.FileManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\My.ZhiCore.FileManagement.Application\My.ZhiCore.FileManagement.Application.csproj" />
+        <ProjectReference Include="..\My.ZhiCore.FileManagement.Domain.Tests\My.ZhiCore.FileManagement.Domain.Tests.csproj" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    </ItemGroup>
+
+</Project>

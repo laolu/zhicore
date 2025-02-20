@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>My.ZhiCore.LanguageManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Domain" />
+    <PackageReference Include="Volo.Abp.Caching" />
+    <PackageReference Include="Volo.Abp.AutoMapper" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" />
+    <ProjectReference Include="..\My.ZhiCore.LanguageManagement.Domain.Shared\My.ZhiCore.LanguageManagement.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
