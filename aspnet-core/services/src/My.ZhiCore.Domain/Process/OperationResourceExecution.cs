@@ -6,7 +6,7 @@ namespace My.ZhiCore.Process
     /// <summary>
     /// 工序资源使用记录实体
     /// </summary>
-    public class ProcessStepResourceExecution : Entity<Guid>
+    public class OperationResourceExecution : Entity<Guid>
     {
         /// <summary>
         /// 关联的工序资源需求Id
@@ -43,11 +43,11 @@ namespace My.ZhiCore.Process
         /// </summary>
         public string Remarks { get; private set; }
 
-        protected ProcessStepResourceExecution()
+        protected OperationResourceExecution()
         {
         }
 
-        public ProcessStepResourceExecution(
+        public OperationResourceExecution(
             Guid id,
             Guid processStepResourceId,
             DateTime startTime,

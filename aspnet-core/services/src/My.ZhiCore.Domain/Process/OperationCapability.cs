@@ -6,7 +6,7 @@ namespace My.ZhiCore.Process
     /// <summary>
     /// 工序能力评估实体
     /// </summary>
-    public class ProcessStepCapability : Entity<Guid>
+    public class OperationCapability : Entity<Guid>
     {
         /// <summary>
         /// 所属工序Id
@@ -58,11 +58,11 @@ namespace My.ZhiCore.Process
         /// </summary>
         public string Remarks { get; private set; }
 
-        protected ProcessStepCapability()
+        protected OperationCapability()
         {
         }
 
-        public ProcessStepCapability(
+        public OperationCapability(
             Guid id,
             Guid processStepId,
             decimal standardTime,

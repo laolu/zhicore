@@ -37,7 +37,7 @@ namespace My.ZhiCore.Process
     /// <summary>
     /// 工序参数实体
     /// </summary>
-    public class ProcessStepParameter : Entity<Guid>
+    public class OperationParameter : Entity<Guid>
     {
         /// <summary>
         /// 所属工序Id
@@ -94,7 +94,7 @@ namespace My.ZhiCore.Process
         /// </summary>
         public string Description { get; private set; }
     
-        protected ProcessStepParameter()
+        protected OperationParameter()
         {
         }
     

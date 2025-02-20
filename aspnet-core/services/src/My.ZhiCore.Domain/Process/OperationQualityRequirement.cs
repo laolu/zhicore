@@ -6,7 +6,7 @@ namespace My.ZhiCore.Process
     /// <summary>
     /// 工序质量检验要求实体
     /// </summary>
-    public class ProcessStepQualityRequirement : Entity<Guid>
+    public class OperationQualityRequirement : Entity<Guid>
     {
         /// <summary>
         /// 所属工序Id

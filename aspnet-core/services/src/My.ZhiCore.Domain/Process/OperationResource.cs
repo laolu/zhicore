@@ -6,7 +6,7 @@ namespace My.ZhiCore.Process
     /// <summary>
     /// 工序资源需求实体
     /// </summary>
-    public class ProcessStepResource : Entity<Guid>
+    public class OperationResource : Entity<Guid>
     {
         /// <summary>
         /// 所属工序Id
