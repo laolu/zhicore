@@ -1,4 +1,6 @@
-namespace My.ZhiCore.Equipment
+using System;
+
+namespace My.ZhiCore.Equipment.Enums
 {
     /// <summary>
     /// 预测性维护预警级别枚举
@@ -19,13 +21,13 @@ namespace My.ZhiCore.Equipment
         Attention = 1,
 
         /// <summary>
-        /// 警告：设备存在明显异常，建议及时处理
+        /// 警告：设备存在明显异常，需要及时处理
         /// </summary>
         Warning = 2,
 
         /// <summary>
-        /// 危险：设备存在严重问题，需要立即处理
+        /// 严重：设备存在严重问题，需要立即处理
         /// </summary>
-        Danger = 3
+        Critical = 3
     }
 }

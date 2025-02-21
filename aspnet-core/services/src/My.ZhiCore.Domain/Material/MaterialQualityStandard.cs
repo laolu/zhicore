@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace My.ZhiCore.Material
@@ -41,6 +42,24 @@ namespace My.ZhiCore.Material
         /// <summary>是否启用</summary>
         public bool IsActive { get; private set; }
 
+        /// <summary>版本号</summary>
+        public string Version { get; private set; }
+
+        /// <summary>审核状态</summary>
+        public QualityStandardStatus Status { get; private set; }
+
+        /// <summary>审核意见</summary>
+        public string AuditComments { get; private set; }
+
+        /// <summary>生效日期</summary>
+        public DateTime? EffectiveDate { get; private set; }
+
+        /// <summary>失效日期</summary>
+        public DateTime? ExpirationDate { get; private set; }
+
+        /// <summary>变更历史记录</summary>
+        public List<QualityStandardChangeRecord> ChangeHistory { get; private set; }
+
         protected MaterialQualityStandard() { }
 
         public MaterialQualityStandard(
@@ -56,6 +75,8 @@ namespace My.ZhiCore.Material
             bool requiresCertificate,
             string storageRequirements) : base(id)
         {
+            ValidateConstructorParameters(materialId, standardCode, standardName, inspectionCycle);
+
             MaterialId = materialId;
             StandardCode = standardCode;
             StandardName = standardName;
@@ -66,35 +87,164 @@ namespace My.ZhiCore.Material
             InspectionCycle = inspectionCycle;
             RequiresCertificate = requiresCertificate;
             StorageRequirements = storageRequirements;
-            IsActive = true;
+            IsActive = false;
+            Version = "1.0.0";
+            Status = QualityStandardStatus.Draft;
+            ChangeHistory = new List<QualityStandardChangeRecord>();
+        }
+
+        private void ValidateConstructorParameters(Guid materialId, string standardCode, string standardName, int inspectionCycle)
+        {
+            if (materialId == Guid.Empty)
+                throw new ArgumentException("Material ID cannot be empty.", nameof(materialId));
+
+            if (string.IsNullOrWhiteSpace(standardCode))
+                throw new ArgumentException("Standard code cannot be empty.", nameof(standardCode));
+
+            if (string.IsNullOrWhiteSpace(standardName))
+                throw new ArgumentException("Standard name cannot be empty.", nameof(standardName));
+
+            if (inspectionCycle <= 0)
+                throw new ArgumentException("Inspection cycle must be greater than zero.", nameof(inspectionCycle));
         }
 
         public void UpdateTechnicalRequirements(string requirements)
         {
+            if (Status != QualityStandardStatus.Draft)
+                throw new InvalidOperationException("只能在草稿状态下修改技术要求");
+
             TechnicalRequirements = requirements;
+            AddChangeRecord("更新技术要求");
         }
 
         public void UpdateInspectionMethod(string method)
         {
+            if (Status != QualityStandardStatus.Draft)
+                throw new InvalidOperationException("只能在草稿状态下修改检验方法");
+
             InspectionMethod = method;
+            AddChangeRecord("更新检验方法");
         }
 
         public void UpdateInspectionCycle(int cycle)
         {
+            if (Status != QualityStandardStatus.Draft)
+                throw new InvalidOperationException("只能在草稿状态下修改检验周期");
+
             if (cycle <= 0)
                 throw new ArgumentException("Inspection cycle must be greater than zero.", nameof(cycle));
 
             InspectionCycle = cycle;
+            AddChangeRecord("更新检验周期");
+        }
+
+        public void SubmitForReview()
+        {
+            if (Status != QualityStandardStatus.Draft)
+                throw new InvalidOperationException("只能提交草稿状态的质量标准进行审核");
+
+            Status = QualityStandardStatus.PendingReview;
+            AddChangeRecord("提交审核");
+        }
+
+        public void Approve(string comments, DateTime effectiveDate, DateTime? expirationDate = null)
+        {
+            if (Status != QualityStandardStatus.PendingReview)
+                throw new InvalidOperationException("只能审核待审核状态的质量标准");
+
+            if (effectiveDate < DateTime.Now)
+                throw new ArgumentException("生效日期不能早于当前日期", nameof(effectiveDate));
+
+            if (expirationDate.HasValue && expirationDate.Value <= effectiveDate)
+                throw new ArgumentException("失效日期必须晚于生效日期", nameof(expirationDate));
+
+            Status = QualityStandardStatus.Approved;
+            AuditComments = comments;
+            EffectiveDate = effectiveDate;
+            ExpirationDate = expirationDate;
+            IsActive = true;
+            AddChangeRecord("审核通过");
+        }
+
+        public void Reject(string comments)
+        {
+            if (Status != QualityStandardStatus.PendingReview)
+                throw new InvalidOperationException("只能驳回待审核状态的质量标准");
+
+            Status = QualityStandardStatus.Rejected;
+            AuditComments = comments;
+            AddChangeRecord("审核驳回");
+        }
+
+        public void CreateNewVersion()
+        {
+            if (Status != QualityStandardStatus.Approved)
+                throw new InvalidOperationException("只能基于已审核通过的质量标准创建新版本");
+
+            var versionParts = Version.Split('.');
+            var majorVersion = int.Parse(versionParts[0]);
+            Version = $"{majorVersion + 1}.0.0";
+            Status = QualityStandardStatus.Draft;
+            AuditComments = null;
+            EffectiveDate = null;
+            ExpirationDate = null;
+            IsActive = false;
+            AddChangeRecord("创建新版本");
+        }
+
+        private void AddChangeRecord(string changeType)
+        {
+            ChangeHistory.Add(new QualityStandardChangeRecord
+            {
+                ChangeType = changeType,
+                Version = Version,
+                ChangeTime = DateTime.Now
+            });
         }
 
         public void Activate()
         {
+            if (Status != QualityStandardStatus.Approved)
+                throw new InvalidOperationException("只能启用已审核通过的质量标准");
+
             IsActive = true;
+            AddChangeRecord("启用质量标准");
         }
 
         public void Deactivate()
         {
+            if (!IsActive)
+                return;
+
             IsActive = false;
+            AddChangeRecord("停用质量标准");
         }
+    }
+
+    public enum QualityStandardStatus
+    {
+        /// <summary>草稿</summary>
+        Draft = 0,
+
+        /// <summary>待审核</summary>
+        PendingReview = 1,
+
+        /// <summary>已审核</summary>
+        Approved = 2,
+
+        /// <summary>已驳回</summary>
+        Rejected = 3
+    }
+
+    public class QualityStandardChangeRecord
+    {
+        /// <summary>变更类型</summary>
+        public string ChangeType { get; set; }
+
+        /// <summary>变更时的版本号</summary>
+        public string Version { get; set; }
+
+        /// <summary>变更时间</summary>
+        public DateTime ChangeTime { get; set; }
     }
 }

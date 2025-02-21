@@ -1,4 +1,6 @@
-namespace My.ZhiCore.Equipment
+using System;
+
+namespace My.ZhiCore.Equipment.Enums
 {
     /// <summary>
     /// 质量趋势枚举，用于表示质量指标的变化趋势

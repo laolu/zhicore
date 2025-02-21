@@ -1,5 +1,7 @@
 using System;
 using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.EventBus.Local;
+using My.ZhiCore.Equipment.Events;
 
 namespace My.ZhiCore.Equipment
 {
@@ -14,6 +16,9 @@ namespace My.ZhiCore.Equipment
     /// - 预警管理（基于维护计划的预警）
     /// </remarks>
     public class Equipment : FullAuditedAggregateRoot<Guid>
+    {
+        protected ILocalEventBus LocalEventBus => LazyServiceProvider.LazyGetRequiredService<ILocalEventBus>();
+
     {
         /// <summary>设备名称</summary>
         public string Name { get; private set; }
@@ -122,7 +127,21 @@ namespace My.ZhiCore.Equipment
             WarningThreshold = warningThreshold;
             CategoryId = categoryId;
             WorkCenterId = workCenterId;
+            var oldStatus = Status;
+            var oldStatus = Status;
             Status = EquipmentStatus.Standby;
+            
+            // 发布维护完成事件
+            LocalEventBus.Publish(new EquipmentMaintenanceCompletedEventData(
+                Id, Code, Name, maintenanceDate, NextMaintenanceDate, TotalMaintenanceCost));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "维护完成"));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "设备停止运行"));
             IsWarning = false;
 
             // 初始化成本相关字段
@@ -157,7 +176,12 @@ namespace My.ZhiCore.Equipment
             if (Status != EquipmentStatus.Standby)
                 throw new InvalidOperationException("Equipment must be in standby status to start operation.");
 
+            var oldStatus = Status;
             Status = EquipmentStatus.Running;
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "设备开始运行"));
         }
 
         /// <summary>
@@ -173,7 +197,21 @@ namespace My.ZhiCore.Equipment
             if (Status != EquipmentStatus.Running)
                 throw new InvalidOperationException("Equipment must be in running status to stop operation.");
 
+            var oldStatus = Status;
+            var oldStatus = Status;
             Status = EquipmentStatus.Standby;
+            
+            // 发布维护完成事件
+            LocalEventBus.Publish(new EquipmentMaintenanceCompletedEventData(
+                Id, Code, Name, maintenanceDate, NextMaintenanceDate, TotalMaintenanceCost));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "维护完成"));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "设备停止运行"));
         }
 
         /// <summary>
@@ -189,7 +227,12 @@ namespace My.ZhiCore.Equipment
             if (Status == EquipmentStatus.Running)
                 throw new InvalidOperationException("Cannot start maintenance while equipment is running.");
 
+            var oldStatus = Status;
             Status = EquipmentStatus.Maintenance;
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "开始设备维护"));
         }
 
         /// <summary>
@@ -205,7 +248,12 @@ namespace My.ZhiCore.Equipment
             if (string.IsNullOrWhiteSpace(faultDescription))
                 throw new ArgumentException("Fault description cannot be empty.", nameof(faultDescription));
 
+            var oldStatus = Status;
             Status = EquipmentStatus.Fault;
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, faultDescription));
         }
 
         /// <summary>
@@ -263,7 +311,21 @@ namespace My.ZhiCore.Equipment
             LastMaintenanceDate = maintenanceDate;
             CalculateNextMaintenanceDate();
 
+            var oldStatus = Status;
+            var oldStatus = Status;
             Status = EquipmentStatus.Standby;
+            
+            // 发布维护完成事件
+            LocalEventBus.Publish(new EquipmentMaintenanceCompletedEventData(
+                Id, Code, Name, maintenanceDate, NextMaintenanceDate, TotalMaintenanceCost));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "维护完成"));
+            
+            // 发布状态变更事件
+            LocalEventBus.Publish(new EquipmentStatusChangedEventData(
+                Id, Code, Name, oldStatus, Status, "设备停止运行"));
         }
 
         /// <summary>
