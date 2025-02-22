@@ -34,6 +34,38 @@ namespace My.ZhiCore.Material.BOM
         /// <summary>失效日期（可选）</summary>
         public DateTime? ExpirationDate { get; private set; }
 
+        /// <summary>变更原因</summary>
+        public string ChangeReason { get; private set; }
+
+        /// <summary>变更说明</summary>
+        public string ChangeDescription { get; private set; }
+
+        /// <summary>前一版本ID</summary>
+        public Guid? PreviousVersionId { get; private set; }
+
+        /// <summary>
+        /// 记录变更历史
+        /// </summary>
+        /// <param name="reason">变更原因</param>
+        /// <param name="description">变更说明</param>
+        /// <param name="previousVersionId">前一版本ID</param>
+        public void RecordChange(string reason, string description, Guid? previousVersionId = null)
+        {
+            ChangeReason = reason;
+            ChangeDescription = description;
+            PreviousVersionId = previousVersionId;
+        }
+
+        /// <summary>
+        /// 清除变更记录
+        /// </summary>
+        public void ClearChangeRecord()
+        {
+            ChangeReason = null;
+            ChangeDescription = null;
+            PreviousVersionId = null;
+        }
+
         /// <summary>
         /// 保护的构造函数，供ORM使用
         /// </summary>
