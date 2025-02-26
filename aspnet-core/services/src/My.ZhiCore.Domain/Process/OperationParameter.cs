@@ -45,6 +45,11 @@ namespace My.ZhiCore.Process
         public Guid ProcessStepId { get; private set; }
 
         /// <summary>
+        /// 参数选项列表
+        /// </summary>
+        public virtual ICollection<OperationParameterOption> Options { get; private set; }
+
+        /// <summary>
         /// 所属参数组Id
         /// </summary>
         public Guid? GroupId { get; private set; }
@@ -98,7 +103,7 @@ namespace My.ZhiCore.Process
         {
         }
     
-        public ProcessStepParameter(
+        public OperationParameter(
             Guid id,
             Guid processStepId,
             Guid? groupId,

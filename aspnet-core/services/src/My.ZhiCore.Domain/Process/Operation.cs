@@ -34,9 +34,14 @@ namespace My.ZhiCore.Process
         public Guid WorkOrderId { get; private set; }
 
         /// <summary>
-        /// 工序顺序号
+        /// 工序类型ID
         /// </summary>
-        public int SequenceNumber { get; private set; }
+        public Guid OperationTypeId { get; private set; }
+
+        /// <summary>
+        /// 参数模板ID
+        /// </summary>
+        public Guid? ParameterTemplateId { get; private set; }
 
         /// <summary>
         /// 工序状态
@@ -50,16 +55,18 @@ namespace My.ZhiCore.Process
             string operationNumber,
             string name,
             Guid workOrderId,
-            int sequenceNumber,
+            Guid operationTypeId,
             int standardTime,
+            Guid? parameterTemplateId = null,
             string description = null)
         {
             Id = id;
             OperationNumber = operationNumber;
             Name = name;
             WorkOrderId = workOrderId;
-            SequenceNumber = sequenceNumber;
+            OperationTypeId = operationTypeId;
             StandardTime = standardTime;
+            ParameterTemplateId = parameterTemplateId;
             Description = description;
             Status = OperationStatus.Pending;
         }
