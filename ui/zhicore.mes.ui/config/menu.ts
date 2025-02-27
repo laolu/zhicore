@@ -2,6 +2,7 @@ import {
   BookOpen,
   Bot,
   Box,
+  Building2,
   ClipboardList,
   Command,
   Factory,
@@ -15,6 +16,7 @@ import {
   Settings,
   Settings2,
   SquareTerminal,
+  Users,
   Warehouse,
   Wrench,
 } from "lucide-react"
@@ -30,23 +32,20 @@ export const menuConfig = {
       title: "系统总览",
       url: "/dashboard",
       icon: LayoutDashboard,
+      isActive: true,
       items: [
         {
-          title: "生产看板",
-          url: "/dashboard/production",
+          title: "数据看板",
+          url: "/dashboard/overview",
         },
         {
-          title: "质量看板",
-          url: "/dashboard/quality",
+          title: "生产监控",
+          url: "/dashboard/monitor",
         },
         {
           title: "设备状态",
           url: "/dashboard/equipment",
         },
-        {
-          title: "异常监控",
-          url: "/dashboard/exception",
-        }
       ],
     },
     {
@@ -59,66 +58,47 @@ export const menuConfig = {
           url: "/production/plan",
         },
         {
-          title: "工艺管理",
-          url: "/production/process",
-          items: [
-            {
-              title: "工艺路线",
-              url: "/production/process/routing",
-            },
-            {
-              title: "工序管理",
-              url: "/production/process/operation",
-            },
-            {
-              title: "BOM管理",
-              url: "/production/process/bom",
-            }
-          ]
+          title: "生产订单",
+          url: "/production/order",
         },
         {
-          title: "生产执行",
-          url: "/production/execution",
-          items: [
-            {
-              title: "生产订单",
-              url: "/production/execution/order",
-            },
-            {
-              title: "工单管理",
-              url: "/production/execution/work-order",
-            },
-            {
-              title: "生产调度",
-              url: "/production/execution/scheduling",
-            },
-            {
-              title: "生产报工",
-              url: "/production/execution/report",
-            }
-          ]
+          title: "工艺路线",
+          url: "/production/routing",
         },
         {
-          title: "现场管理",
-          url: "/production/shop-floor",
-          items: [
-            {
-              title: "工位管理",
-              url: "/production/shop-floor/station",
-            },
-            {
-              title: "人员排班",
-              url: "/production/shop-floor/scheduling",
-            },
-            {
-              title: "异常处理",
-              url: "/production/shop-floor/exception",
-            }
-          ]
+          title: "生产报工",
+          url: "/production/report",
         },
         {
           title: "生产追溯",
           url: "/production/trace",
+        },
+      ],
+    },
+    {
+      title: "物料管理",
+      url: "/inventory",
+      icon: Box,
+      items: [
+        {
+          title: "物料主数据",
+          url: "/inventory/material",
+        },
+        {
+          title: "库存查询",
+          url: "/inventory/stock",
+        },
+        {
+          title: "入库管理",
+          url: "/inventory/inbound",
+        },
+        {
+          title: "出库管理",
+          url: "/inventory/outbound",
+        },
+        {
+          title: "库存盘点",
+          url: "/inventory/check",
         },
       ],
     },
@@ -128,69 +108,24 @@ export const menuConfig = {
       icon: ClipboardList,
       items: [
         {
-          title: "质量标准",
+          title: "质检标准",
           url: "/quality/standard",
         },
         {
-          title: "质量检验",
-          url: "/quality/inspection",
-          items: [
-            {
-              title: "首检管理",
-              url: "/quality/inspection/first",
-            },
-            {
-              title: "过程检验",
-              url: "/quality/inspection/process",
-            },
-            {
-              title: "完工检验",
-              url: "/quality/inspection/final",
-            }
-          ]
+          title: "来料检验",
+          url: "/quality/incoming",
         },
         {
-          title: "SPC控制",
-          url: "/quality/spc",
+          title: "过程检验",
+          url: "/quality/process",
         },
         {
-          title: "计量管理",
-          url: "/quality/measuring",
+          title: "成品检验",
+          url: "/quality/final",
         },
         {
           title: "不合格处理",
           url: "/quality/ncr",
-        },
-        {
-          title: "质量追溯",
-          url: "/quality/trace",
-        },
-      ],
-    },
-    {
-      title: "生产物料",
-      url: "/production-material",
-      icon: Box,
-      items: [
-        {
-          title: "线边库管理",
-          url: "/production-material/lineside",
-        },
-        {
-          title: "上料管理",
-          url: "/production-material/feeding",
-        },
-        {
-          title: "物料配送",
-          url: "/production-material/delivery",
-        },
-        {
-          title: "物料消耗",
-          url: "/production-material/consumption",
-        },
-        {
-          title: "物料追溯",
-          url: "/production-material/trace",
         },
       ],
     },
@@ -204,21 +139,44 @@ export const menuConfig = {
           url: "/equipment/list",
         },
         {
-          title: "点检保养",
+          title: "设备维护",
           url: "/equipment/maintenance",
         },
         {
-          title: "故障维修",
+          title: "维修管理",
           url: "/equipment/repair",
         },
         {
-          title: "设备追溯",
-          url: "/equipment/trace",
+          title: "备件管理",
+          url: "/equipment/spare-parts",
         },
       ],
     },
     {
-      title: "报表分析",
+      title: "仓储管理",
+      url: "/warehouse",
+      icon: Warehouse,
+      items: [
+        {
+          title: "仓库设置",
+          url: "/warehouse/setup",
+        },
+        {
+          title: "库位管理",
+          url: "/warehouse/location",
+        },
+        {
+          title: "库存移动",
+          url: "/warehouse/transfer",
+        },
+        {
+          title: "库存预警",
+          url: "/warehouse/alert",
+        },
+      ],
+    },
+    {
+      title: "报表中心",
       url: "/reports",
       icon: FileSpreadsheet,
       items: [
@@ -235,9 +193,74 @@ export const menuConfig = {
           url: "/reports/equipment",
         },
         {
-          title: "生产物料报表",
-          url: "/reports/production-material",
+          title: "库存报表",
+          url: "/reports/inventory",
         },
+      ],
+    },
+    {
+      title: "基础数据",
+      url: "/master-data",
+      icon: Building2,
+      items: [
+        {
+          title: "工厂建模",
+          url: "/master-data/factory",
+        },
+        {
+          title: "工艺管理",
+          url: "/master-data/process",
+          items: [
+            {
+              title: "工艺路线",
+              url: "/master-data/process/routing",
+            },
+            {
+              title: "工序管理",
+              url: "/master-data/process/operation",
+            },
+            {
+              title: "工艺参数",
+              url: "/master-data/process/parameter",
+            }
+          ]
+        },
+        {
+          title: "物料管理",
+          url: "/master-data/material",
+          items: [
+            {
+              title: "物料主数据",
+              url: "/master-data/material/info",
+            },
+            {
+              title: "BOM管理",
+              url: "/master-data/material/bom",
+            },
+            {
+              title: "物料分类",
+              url: "/master-data/material/category",
+            }
+          ]
+        },
+        {
+          title: "人员管理",
+          url: "/master-data/personnel",
+          items: [
+            {
+              title: "员工信息",
+              url: "/master-data/personnel/employee",
+            },
+            {
+              title: "班组管理",
+              url: "/master-data/personnel/team",
+            },
+            {
+              title: "技能管理",
+              url: "/master-data/personnel/skill",
+            }
+          ]
+        }
       ],
     },
     {
@@ -246,40 +269,24 @@ export const menuConfig = {
       icon: Settings,
       items: [
         {
-          title: "用户权限",
-          url: "/system/auth",
-          items: [
-            {
-              title: "用户管理",
-              url: "/system/auth/users",
-            },
-            {
-              title: "角色权限",
-              url: "/system/auth/roles",
-            },
-            {
-              title: "组织架构",
-              url: "/system/auth/organization",
-            }
-          ]
+          title: "用户管理",
+          url: "/system/users",
         },
         {
-          title: "系统配置",
-          url: "/system/settings",
-          items: [
-            {
-              title: "基础参数",
-              url: "/system/settings/parameters",
-            },
-            {
-              title: "数据字典",
-              url: "/system/settings/dictionary",
-            },
-            {
-              title: "接口配置",
-              url: "/system/settings/interface",
-            }
-          ]
+          title: "角色权限",
+          url: "/system/roles",
+        },
+        {
+          title: "组织架构",
+          url: "/system/organization",
+        },
+        {
+          title: "系统参数",
+          url: "/system/parameters",
+        },
+        {
+          title: "数据字典",
+          url: "/system/dictionary",
         },
       ],
     },
